@@ -23,9 +23,10 @@ public class Servico {
         this.preco = preco;
     }
     
-    @Override
-    public String toString() {
-        return "Servico [id=" + id + ", nome=" + nome + ", preco=" + preco + "]";
+    public void exibir() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Serviço \n  id=").append(id).append(", nome=").append(nome).append(", preco=").append(preco).append("]");
+        System.out.println(sb.toString());
     }
 
     public Servico(int id, String nome, double preco) {

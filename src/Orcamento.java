@@ -7,6 +7,7 @@ public class Orcamento {
     private Cliente cliente;
     private List<Servico> servicos;
     private double total;
+    private double desconto = 0.10;
 
     public Orcamento(int id, Cliente cliente) {
         this.id = id;
@@ -15,29 +16,32 @@ public class Orcamento {
         this.total = 0.0;
     }
 
+    public Orcamento(int id, Cliente cliente, double desconto) {
+        this.id = id;
+        this.cliente = cliente;
+        this.servicos = new ArrayList<>();
+        this.total = 0.0;
+        this.desconto = total * desconto;
+    }
+
     public void adicionarServico(Servico servico) {
         servicos.add(servico);
         total += servico.getPreco();
     }
 
     public double getTotal() {
-        return total;
+        return total * (1 - desconto);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Orçamento #").append(id).append("\n");
-        sb.append("Cliente: ").append(cliente.getNome()).append(" | Telefone: ").append(cliente.getTelefone()).append("\n");
-        sb.append("Veículo: ").append(cliente.getVeiculo().getMarca()).append(" ")
-          .append(cliente.getVeiculo().getModelo()).append(" | Ano: ").append(cliente.getVeiculo().getAno())
-          .append(" | Placa: ").append(cliente.getVeiculo().getPlaca()).append("\n");
-        sb.append("Serviços:\n");
+    public void exibir() {
+        System.out.println("Orçamento #" + id);
+        cliente.exibir();
+        System.out.println("Serviços:");
         for (Servico s : servicos) {
-            sb.append("- ").append(s.getNome()).append(" | Preço: R$ ").append(s.getPreco()).append("\n");
+            s.exibir();
         }
-        sb.append("Total: R$ ").append(total).append("\n");
-        return sb.toString();
+        System.out.println("Total sem desconto: R$ " + total);
+        System.out.println("Total com desconto: R$ " + getTotal());
     }
 
 }

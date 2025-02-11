@@ -37,10 +37,4 @@ public class Veiculo {
         this.ano = ano;
     }
 
-
-    @Override
-    public String toString() {
-        return "Veiculo [placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", ano=" + ano + "]";
-    }
-
 }

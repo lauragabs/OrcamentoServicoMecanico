@@ -30,9 +30,13 @@ public class Cliente {
         this.veiculo = veiculo;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente [nome=" + nome + ", telefone=" + telefone + ", veiculo=" + veiculo + "]";
+    public void exibir() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Cliente: ").append(nome).append(" | Telefone: ").append(telefone).append("\n");
+        sb.append("Veículo: ").append(veiculo.getMarca()).append(" ")
+          .append(veiculo.getModelo()).append(" | Ano: ").append(veiculo.getAno())
+          .append(" | Placa: ").append(veiculo.getPlaca()).append("\n");
+        System.out.println(sb.toString());
     }
 
 }

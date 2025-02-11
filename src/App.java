@@ -124,7 +124,7 @@ public class App {
     
         orcamentos.add(orcamento); 
         System.out.println("\nOrçamento criado com sucesso!");
-        System.out.println(orcamento);
+        orcamento.exibir(); 
     }
     
 }
