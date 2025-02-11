@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -55,8 +56,18 @@ public class App {
         System.out.print("Modelo do Veículo: ");
         String modelo = scanner.nextLine();
         System.out.print("Ano do Veículo: ");
-        int ano = scanner.nextInt();
-        scanner.nextLine();
+        int ano = 0;
+        while (true) {
+            System.out.print("Ano do Veículo: ");
+            try {
+                ano = scanner.nextInt();
+                scanner.nextLine(); // Consumir quebra de linha
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.nextLine(); // Limpar entrada inválida
+            }
+        }
 
         Veiculo veiculo = new Veiculo(placa, marca, modelo, ano);
         Cliente cliente = new Cliente(nome, telefone, veiculo);
@@ -67,9 +78,19 @@ public class App {
     private static void cadastrarServico() {
         System.out.print("Nome do Serviço: ");
         String nome = scanner.nextLine();
-        System.out.print("Preço do Serviço: ");
-        double preco = scanner.nextDouble();
-        scanner.nextLine(); 
+
+        double preco = 0.0;
+        while (true) {
+            System.out.print("Preço do Serviço: ");
+            try {
+                preco = scanner.nextDouble();
+                scanner.nextLine(); // Consumir quebra de linha
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.nextLine(); // Limpar entrada inválida
+            }
+        } 
     
         Servico servico = new Servico(contadorOrcamento, nome, preco);
         servicos.add(servico);
@@ -109,16 +130,21 @@ public class App {
     
         while (true) {
             System.out.print("Escolha o serviço pelo número (0 para finalizar): ");
-            int indiceServico = scanner.nextInt() - 1;
-            scanner.nextLine(); // Consumir quebra de linha
-    
-            if (indiceServico == -1) break;
-    
-            if (indiceServico < 0 || indiceServico >= servicos.size()) {
-                System.out.println("Opção inválida!");
-            } else {
-                orcamento.adicionarServico(servicos.get(indiceServico));
-                System.out.println("Serviço adicionado ao orçamento.");
+            try {
+                int indiceServico = scanner.nextInt() - 1;
+                scanner.nextLine(); // Consumir quebra de linha
+
+                if (indiceServico == -1) break;
+
+                if (indiceServico < 0 || indiceServico >= servicos.size()) {
+                    System.out.println("Opção inválida!");
+                } else {
+                    orcamento.adicionarServico(servicos.get(indiceServico));
+                    System.out.println("Serviço adicionado ao orçamento.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.nextLine(); // Limpar entrada inválida
             }
         }
     
