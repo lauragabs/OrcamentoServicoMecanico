@@ -25,7 +25,7 @@ public class Servico {
     
     public void exibir() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Serviço \n  id=").append(id).append(", nome=").append(nome).append(", preco=").append(preco).append("]");
+        sb.append(" ").append(nome).append("| R$ ").append(preco).append("\n");
         System.out.println(sb.toString());
     }
 
