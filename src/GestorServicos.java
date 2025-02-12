@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class GestorServicos {
     private static List<Servico> servicos = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
 
-    public static void cadastrarServico() {
+    public static void cadastrarServico(Scanner scanner) {
         System.out.print("Nome do Serviço: ");
         String nome = scanner.nextLine();
 

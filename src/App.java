@@ -19,13 +19,13 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    GestorClientes.cadastrarClienteEVeiculo();
+                    GestorClientes.cadastrarClienteEVeiculo(scanner);
                     break;
                 case 2:
-                    GestorServicos.cadastrarServico();
+                    GestorServicos.cadastrarServico(scanner);
                     break;
                 case 3:
-                    GestorOrcamentos.criarOrcamento();
+                    GestorOrcamentos.criarOrcamento(scanner);
                     break;
                 case 4:
                     System.out.println("Saindo do sistema...");

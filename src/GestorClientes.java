@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class GestorClientes {
     private static List<Cliente> clientes = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
 
-    public static void cadastrarClienteEVeiculo() {
+    public static void cadastrarClienteEVeiculo(Scanner scanner) {
         System.out.print("Nome do Cliente: ");
         String nome = scanner.nextLine();
         System.out.print("Telefone: ");

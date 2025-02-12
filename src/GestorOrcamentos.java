@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class GestorOrcamentos {
     private static List<Orcamento> orcamentos = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
 
-    public static void criarOrcamento() {
+    public static void criarOrcamento(Scanner scanner) {
         List<Cliente> clientes = GestorClientes.getClientes();
         List<Servico> servicos = GestorServicos.getServicos();
 
