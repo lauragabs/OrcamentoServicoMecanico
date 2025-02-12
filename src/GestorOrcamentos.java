@@ -33,7 +33,7 @@ public class GestorOrcamentos {
         }
 
         Cliente cliente = clientes.get(indiceCliente);
-        Orcamento orcamento = new Orcamento(orcamentos.size() + 1, cliente);
+        Orcamento orcamento = new Orcamento(orcamentos.size() + 1, cliente, new ArrayList<>());
 
         System.out.println("Serviços disponíveis:");
         for (int i = 0; i < servicos.size(); i++) {

@@ -8,23 +8,16 @@ public class Orcamento {
     private List<Servico> servicos;
     private double desconto = 0.10;
 
-    public Orcamento(int id, Cliente cliente) {
+    public Orcamento(int id, Cliente cliente, List<Servico> servicos) {
         this.id = id;
         this.cliente = cliente;
-        this.servicos = new ArrayList<>();
-    }
-
-    public Orcamento(int id, Cliente cliente, double desconto) {
-        this.id = id;
-        this.cliente = cliente;
-        this.servicos = new ArrayList<>();
-        this.desconto = desconto;
+        this.servicos = servicos != null ? servicos : new ArrayList<>();
     }
 
     public Orcamento(int id, Cliente cliente, List<Servico> servicos, double desconto) {
         this.id = id;
         this.cliente = cliente;
-        this.servicos = servicos;
+        this.servicos = servicos != null ? servicos : new ArrayList<>();
         this.desconto = desconto;
     }
 
