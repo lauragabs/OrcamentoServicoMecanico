@@ -20,6 +20,9 @@ O projeto está organizado da seguinte forma:
   - `Veiculo.java`: Classe que representa um veículo.
   - `Servico.java`: Classe que representa um serviço.
   - `Orcamento.java`: Classe que representa um orçamento.
+  - `GestorClientes.java`: Classe responsável pelo gerenciamento de clientes.
+  - `GestorServicos.java`: Classe responsável pelo gerenciamento de serviços.
+  - `GestorOrcamentos.java`: Classe responsável pelo gerenciamento de orçamentos.
 
 ## Temas Abordados
 
